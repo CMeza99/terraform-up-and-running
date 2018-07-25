@@ -1,0 +1,9 @@
+version: 2
+projects:
+- name: terraform-up-and-running
+  dir: .
+  workspace: default
+  autoplan:
+    when_modified: ["**/*.tf"]
+    enabled: true
+
