@@ -3,6 +3,7 @@ terraform {
 }
 
 provider "aws" {
+  version                 = "~> 1.28"
   region                  = "ca-central-1"
   shared_credentials_file = "/root/.aws/creds"
   profile                 = "saml"
