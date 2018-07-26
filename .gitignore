@@ -4,6 +4,8 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
+!global/backend/*.tfstate
+!global/backend/*.tfstate.*
 
 # .tfvars files
 *.tfvars
