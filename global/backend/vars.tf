@@ -9,5 +9,7 @@ variable "tf-state-s3" {
 }
 
 locals {
-  "tf-state-lock"= "${var.tf-state-s3}-lock"
+variable "tf-state-lock" {
+  type = "string"
+  default = "tf-state-lock"
 }
