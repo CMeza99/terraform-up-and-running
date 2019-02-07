@@ -4,7 +4,7 @@ terraform {
 
 provider "aws" {
   version                 = "~> 1.28"
-  region                  = "us-west-1"
+  region                  = "${tf-state-region}"
 }
 
 resource "aws_s3_bucket" "terraform_state" {
