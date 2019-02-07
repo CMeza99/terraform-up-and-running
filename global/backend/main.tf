@@ -4,11 +4,11 @@ terraform {
 
 provider "aws" {
   version                 = "~> 1.28"
-  region                  = "ca-central-1"
+  region                  = "us-west-1"
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "eb-test-tur-terraform-state"
+  bucket = "${var.tf-state-s3}"
 
   versioning {
     enabled = true
@@ -18,13 +18,15 @@ resource "aws_s3_bucket" "terraform_state" {
     Name = "Terraform State"
   }
 
+/*
   lifecycle {
     prevent_destroy = true
   }
+*/
 }
 
 resource "aws_dynamodb_table" "terraform_state_lock" {
-  name           = "eb-test-tur-terraform-state-lock"
+  name           = "${local.tf-state-lock}"
   hash_key       = "LockID"
   read_capacity  = 20
   write_capacity = 20
@@ -38,7 +40,9 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
     Name = "Terraform State Lock Table"
   }
 
+/*
   lifecycle {
     prevent_destroy = true
   }
+*/
 }
