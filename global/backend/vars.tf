@@ -1,14 +1,14 @@
-variable "tf-state-region" {
+variable "tfstate-region" {
   type = "string"
   default = "us-west-1"
 }
 
-variable "tf-state-s3" {
+variable "tfstate-s3" {
   type = "string"
-  default = "tf-state"
+  default = "tfstate"
 }
 
-variable "tf-state-lock" {
+variable "tfstate-lock" {
   type = "string"
-  default = "tf-state-lock"
+  default = "tfstate-lock"
 }

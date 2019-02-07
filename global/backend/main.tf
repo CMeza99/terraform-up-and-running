@@ -3,12 +3,12 @@ terraform {
 }
 
 provider "aws" {
-  version                 = "~> 1.28"
-  region                  = "${var.tf-state-region}"
+  version = "~> 1.28"
+  region  = "${var.tfstate-region}"
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "${var.tf-state-s3}"
+  bucket = "${var.tfstate-s3}"
 
   versioning {
     enabled = true
@@ -26,7 +26,7 @@ resource "aws_s3_bucket" "terraform_state" {
 }
 
 resource "aws_dynamodb_table" "terraform_state_lock" {
-  name           = "${var.tf-state-lock}"
+  name           = "${var.tfstate-lock}"
   hash_key       = "LockID"
   read_capacity  = 20
   write_capacity = 20
